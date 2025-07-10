@@ -14,7 +14,8 @@ CREATE TABLE IF NOT EXISTS transactions (
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id)
         REFERENCES users(id)
-        ON DELETE CASCADE
+        ON DELETE CASCADE,
+    INDEX idx_user_id (user_id)
 );
 
 CREATE TABLE IF NOT EXISTS holdings (
