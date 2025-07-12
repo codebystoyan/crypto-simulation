@@ -2,8 +2,11 @@ package com.simulation.trading.crypto.repository;
 
 import com.simulation.trading.crypto.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 
 @Repository
 public class UserRepository {
@@ -15,12 +18,17 @@ public class UserRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public User getUserBalance(int userID) {
-        String sql = "SELECT balance FROM users WHERE id = ?";
-        return jdbcTemplate.queryForObject(sql,
-                (rs, rowNum) -> new User(rs.getInt("id"),
-                rs.getString("name"), rs.getDouble("balance")),
-                userID);
+    public Optional<User> getUserById(int userID) {
+        String sql = "SELECT * FROM users WHERE id = ?";
+        try{
+            return Optional.of(jdbcTemplate.queryForObject(sql,
+                    (rs, rowNum) -> new User(rs.getInt("id"),
+                                                        rs.getString("name"),
+                                                        rs.getDouble("balance")),
+                    userID));
+        } catch (EmptyResultDataAccessException e){
+            return Optional.empty();
+        }
     }
 
     //TODO: return int to indicate num of affected rows, maybe impl check to veify ==1

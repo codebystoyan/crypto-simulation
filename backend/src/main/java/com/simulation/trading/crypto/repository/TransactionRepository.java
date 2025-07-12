@@ -18,12 +18,9 @@ public class TransactionRepository {
     }
 
     public int addTransaction(Transaction transaction) {
-        String sql = """
-                     INSERT INTO transactions 
-                     (id, user_id, crypto_symbol, amount, fiat_amount, type, timestamp) 
-                     VALUES (?, ?, ?, ?, ?, ?, ?)
-                     """;
-        return jdbcTemplate.update(sql, transaction.id(), transaction.userId(), transaction.amount(),
+        String sql = "INSERT INTO transactions (id, user_id, crypto_symbol, amount, fiat_amount, type, timestamp) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        return jdbcTemplate.update(sql, transaction.id(), transaction.userId(), transaction.symbol(),transaction.amount(),
                 transaction.fiatAmount(), transaction.type().name().toUpperCase(), transaction.timestamp());
     }
 
