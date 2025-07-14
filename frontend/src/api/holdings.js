@@ -1,5 +1,7 @@
+import { BACKEND_SERVER_URL } from "../config";
+
 export async function getHoldings(userId) {
-    const res = await fetch(`http://localhost:8080/holdings/user/${userId}`, {
+    const res = await fetch(`${BACKEND_SERVER_URL}/holdings/user/${userId}`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
       });

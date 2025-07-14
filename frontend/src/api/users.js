@@ -1,5 +1,7 @@
+import { BACKEND_SERVER_URL } from "../config";
+
 export async function getUserBalance(userId) {
-    const res = await fetch(`http://localhost:8080/users/balance/${userId}`, {
+    const res = await fetch(`${BACKEND_SERVER_URL}/users/balance/${userId}`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
       });
@@ -11,7 +13,7 @@ export async function getUserBalance(userId) {
 }
 
 export async function resetUserBalance(userId) {
-    const res = await fetch(`http://localhost:8080/users/balance/reset/${userId}`, {
+    const res = await fetch(`${BACKEND_SERVER_URL}/users/balance/reset/${userId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
       });
