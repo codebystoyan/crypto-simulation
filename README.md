@@ -57,3 +57,7 @@ mvn spring-boot:run
 ### 4. Inside /frontend
 
 Run `npm install` and then `npm run dev`, since project was configured with Vite
+
+##  Screenshots
+
+Screenshots are located in `/assets/screenshots` folder
