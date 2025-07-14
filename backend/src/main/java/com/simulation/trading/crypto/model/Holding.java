@@ -1,12 +1,13 @@
 package com.simulation.trading.crypto.model;
 
-import java.time.LocalDateTime;
+import java.math.BigDecimal;
+import java.time.Instant;
 
 public class Holding {
     private final int userId;
     private final String symbol;
-    private double amount;
-    private LocalDateTime lastUpdated;
+    private BigDecimal amount;
+    private Instant lastUpdated;
 
     public Holding(int userId, String symbol) {
         this.userId = userId;
@@ -21,19 +22,19 @@ public class Holding {
         return symbol;
     }
 
-    public double getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public LocalDateTime getLastUpdated() {
+    public Instant getLastUpdated() {
         return lastUpdated;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
-    public void setLastUpdated(LocalDateTime lastUpdated) {
+    public void setLastUpdated(Instant lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
 }

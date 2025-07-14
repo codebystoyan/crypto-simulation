@@ -30,10 +30,10 @@ public class TransactionRepository {
                 (rs, rowNum) -> new Transaction(rs.getInt("id"),
                                                 rs.getInt("user_id"),
                                                 rs.getString("crypto_symbol"),
-                                                rs.getDouble("amount"),
-                                                rs.getDouble("fiat_amount"),
+                                                rs.getBigDecimal("amount"),
+                                                rs.getBigDecimal("fiat_amount"),
                                                 TransactionType.valueOf(rs.getString("type").toUpperCase()),
-                                                rs.getTimestamp("timestamp").toLocalDateTime()),
+                                                rs.getTimestamp("timestamp").toInstant()),
                 userID);
     }
 }

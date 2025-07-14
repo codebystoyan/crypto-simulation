@@ -1,9 +1,7 @@
 package com.simulation.trading.crypto.repository;
 
-import com.simulation.trading.crypto.exception.UserNotFoundException;
 import com.simulation.trading.crypto.model.Holding;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -25,8 +23,8 @@ public class HoldingsRepository {
             Holding h = new Holding(rs.getInt("user_id"),
                     rs.getString("crypto_symbol"));
 
-            h.setAmount(rs.getDouble("amount"));
-            h.setLastUpdated(rs.getTimestamp("last_updated").toLocalDateTime());
+            h.setAmount(rs.getBigDecimal("amount"));
+            h.setLastUpdated(rs.getTimestamp("last_updated").toInstant());
             return h;
         }
     }
@@ -53,13 +51,13 @@ public class HoldingsRepository {
     public int updateCryptoHolding(Holding holding) {
         String sql = "UPDATE holdings SET amount=?, last_updated=? WHERE user_id=? AND crypto_symbol=?";
         return jdbcTemplate.update(sql,  holding.getAmount(),
-                Timestamp.valueOf(holding.getLastUpdated()), holding.getUserId(), holding.getSymbol());
+                Timestamp.from(holding.getLastUpdated()), holding.getUserId(), holding.getSymbol());
     }
 
     public int insertCryptoHolding(Holding holding) {
         String sql = "INSERT INTO holdings(user_id,crypto_symbol,amount,last_updated) VALUES(?,?,?,?)";
         return jdbcTemplate.update(sql, holding.getUserId(), holding.getSymbol(),
-                holding.getAmount(), Timestamp.valueOf(holding.getLastUpdated()));
+                holding.getAmount(), Timestamp.from(holding.getLastUpdated()));
     }
 
     public int deleteCryptoHolding(int userId, String symbol) {

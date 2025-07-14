@@ -1,11 +1,13 @@
 package com.simulation.trading.crypto.model;
 
+import java.math.BigDecimal;
+
 public class User {
     private final int userID;
     private final String userName;
-    private double balance;
+    private BigDecimal balance;
 
-    public User(int userID, String userName, double balance) {
+    public User(int userID, String userName, BigDecimal balance) {
         this.userID = userID;
         this.userName = userName;
         this.balance = balance;
@@ -19,11 +21,11 @@ public class User {
         return userName;
     }
 
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 }

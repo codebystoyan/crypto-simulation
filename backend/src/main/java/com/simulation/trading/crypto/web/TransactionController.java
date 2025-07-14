@@ -3,6 +3,7 @@ package com.simulation.trading.crypto.web;
 import com.simulation.trading.crypto.model.Transaction;
 import com.simulation.trading.crypto.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -20,13 +21,17 @@ public class TransactionController {
     }
 
     @GetMapping("/user/{id:[0-9]+}")
-    public List<Transaction> getUserTransactions(@PathVariable("id") int userId) {
-        return transactionService.getTransactionHistory(userId);
+    public ResponseEntity<List<Transaction>> getUserTransactions(@PathVariable("id") int userId) {
+        List<Transaction> transactions = transactionService.getTransactionHistory(userId);
+        if (transactions.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(transactions);
     }
 
-    //TODO: when catching exceptions catch DBAccessSomethingException to signal exact problem, perhaps DBdown?
     @PostMapping
-    public void createTransaction(@RequestBody Transaction transaction) {
-        transactionService.trade(transaction);
+    public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction) {
+        Transaction saved = transactionService.trade(transaction);
+        return ResponseEntity.ok(saved);
     }
 }

@@ -2,7 +2,10 @@ package com.simulation.trading.crypto.web;
 
 import com.simulation.trading.crypto.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("/users")
@@ -15,13 +18,15 @@ public class UserController {
     }
 
     @GetMapping("/balance/{user_id:[0-9]+}")
-    public double getUserBalance(@PathVariable("user_id") int userId) {
-        return userService.getUserBalance(userId);
+    public ResponseEntity<BigDecimal> getUserBalance(@PathVariable("user_id") int userId) {
+        BigDecimal balance = userService.getUserBalance(userId);
+        return ResponseEntity.ok(balance);
     }
 
     //TODO: PUT mapping?? cuz not creating but updating
-    @PostMapping("/balance/reset/{user_id:[0-9]+}")
-    public void resetUserBalance(@PathVariable("user_id") int userId) {
-        userService.resetBalance(userId);
+    @PutMapping("/balance/reset/{user_id:[0-9]+}")
+    public ResponseEntity<BigDecimal> resetUserBalance(@PathVariable("user_id") int userId) {
+        BigDecimal newResetBalance = userService.resetBalance(userId);
+        return ResponseEntity.ok(newResetBalance);
     }
 }
