@@ -1,0 +1,91 @@
+.transaction-history-container {
+    background: #fff;
+    border-radius: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-bottom: 3%;
+  }
+  
+  .transaction-table thead tr {
+    background-color: #4caf50;
+    color: white;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 12px;
+  }
+  
+  .transaction-table th:nth-child(1),
+  .transaction-table td:nth-child(1) {
+    width: 12%;
+    white-space: nowrap;
+  }
+  
+  .transaction-table th:nth-child(2),
+  .transaction-table td:nth-child(2) {
+    width: 20%;
+    white-space: nowrap;
+  }
+  
+  .transaction-table th:nth-child(3),
+  .transaction-table td:nth-child(3) {
+    width: 18%;
+    white-space: nowrap;
+  }
+  
+  .transaction-table th:nth-child(4),
+  .transaction-table td:nth-child(4) {
+    width: 20%;
+    white-space: nowrap;
+  }
+  
+  .transaction-table th:nth-child(5),
+  .transaction-table td:nth-child(5) {
+    width: 30%; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .transaction-table th, 
+  .transaction-table td {
+    padding: 8px 12px;
+    vertical-align: middle;
+    font-size: 0.95rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .transaction-table tbody tr {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: background-color 0.3s ease;
+  }
+  
+  .transaction-table tbody tr:hover {
+    background-color: #e0f2f1;
+  }
+  
+  .transaction-table tbody td {
+    border: none;
+  }
+  
+  .transaction-table tbody td.buy {
+    color: #2e7d32; 
+    font-weight: 600;
+  }
+  
+  .transaction-table tbody td.sell {
+    color: #c62828;
+    font-weight: 600;
+  }
+  
+  .empty-message {
+    margin: 40px auto;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    max-width: 400px;
+  }
+  

@@ -1,0 +1,73 @@
+.holdings-container {
+    position: fixed;
+    top: 12vh;
+    right: 0;
+    width: 30vw;
+    max-width: 400px;
+    padding: 20px 10px 20px 0;
+    background-color: transparent;
+    z-index: 999;
+  }
+  
+  .holdings-card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    border-radius: 1px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: height 0.3s ease;
+  }
+  
+  .holdings-header {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.4rem;
+    color: #222;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+  }
+  
+  .holdings-empty {
+    font-style: italic;
+    color: #888;
+  }
+  
+  .holdings-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .holdings-th {
+    text-align: left;
+    padding-bottom: 8px;
+    font-size: 0.85rem;
+    color: #666;
+  }
+  
+  .holdings-td {
+    padding: 6px 0;
+    font-size: 0.9rem;
+    color: #333;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .holdings-button {
+    margin-top: 10px;
+    width: 95%;
+    align-self: center;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .holdings-button:hover {
+    background: #0056b3;
+  }
+  

@@ -1,0 +1,1 @@
+export const GLOBAL_USER_ID = 1;

@@ -1,0 +1,14 @@
+.user-balance-container{
+    position: 'fixed';
+    top: 10;
+    right: 10;
+    padding: '8px 12px';
+    color: '#fff';
+    border-radius: '6px';
+    font-weight: 'bold';
+    z-index: 1000;
+  }
+
+.reset-btn {
+  margin-left: 20px;
+}

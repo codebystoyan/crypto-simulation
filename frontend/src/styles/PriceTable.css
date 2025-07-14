@@ -1,0 +1,56 @@
+.grid-container-wrapper {
+    /* display: flex; */
+    /* justify-content: center; */
+    max-height: calc(100vh - 15vh); /* full viewport minus header height */
+    box-sizing: border-box;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .price-text {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: flex-start; 
+    gap: 12px; 
+  }
+  .buy-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .sell-button {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .buy-button:hover {
+    background-color: #45a049;
+  }
+  
+  .sell-button:hover {
+    background-color: #d5d5d5;
+  }
+  
